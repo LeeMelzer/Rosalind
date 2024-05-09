@@ -15,4 +15,4 @@ for key, value in graph.items():
     result[int(key)] = len(value)
 
 result.pop(0)
-print(' '.join(map(str, result)))
+print(' '.join(map(str, result))) 
