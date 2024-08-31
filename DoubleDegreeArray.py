@@ -3,12 +3,12 @@ from collections import defaultdict
 with open("data.txt") as f:
     lines = f.read().splitlines()
 
-nodes, edges = map(int, lines[0].split())
+length, edges = map(int, lines[0].split())
 dict = defaultdict(list)
 
-for i in range(1, nodes+1):
-    s = str(i)
-    dict[s]
+for i in range(1, length+1):
+    string = str(i)
+    dict[string] 
 
 for i in range(1, len(lines)):
     n, k = map(str, lines[i].split())
@@ -18,9 +18,10 @@ for i in range(1, len(lines)):
 result = []
 for key, value in dict.items():
     sum = 0
-    for val in dict.get(key):
+    for val in dict.get(key): 
         degree = len(dict.get(val))
         sum += degree
-    result.append(sum) 
+    
+    result.append(sum)
 
 print(*result) 
