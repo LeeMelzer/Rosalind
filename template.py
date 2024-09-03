@@ -10,7 +10,7 @@ def partition(arr, low, high):
         if arr[j] <= pivot:
             i += 1
             (arr[j], arr[i]) = (arr[i], arr[j])
-    
+        
     (arr[i+1], arr[high]) = (arr[high], arr[i+1])
     return i+1
 
@@ -21,4 +21,4 @@ def quickSort(arr, low, high):
         quickSort(arr, pi+1, high)
 
 quickSort(arr, 0, n-1)
-print(*arr)  
+print(*arr) 
