@@ -1,12 +1,25 @@
-import heapq
+def partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
 
-with open("data.txt") as f:
-    n = list(map(int, f.readline().split()))[0]
-    arr = list(map(int, f.readline().split()))
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            (arr[i], arr[j]) = (arr[j], arr[i])
+    
+    (arr[i+1], arr[high]) = (arr[high], arr[i+1])
+    return i+1
 
-result = []
-heapq.heapify(result)
-while arr:
-    result.append(heapq.heappop(arr))
+def quickSort(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
+        quickSort(arr, 0, pi-1)
+        quickSort(arr, pi+1, high)
 
-print(*result) 
+def main():
+    arr = [5, 3, 8, 9, 6, 1, -1]
+    quickSort(arr, 0, len(arr)-1)
+    print(*arr)
+
+if __name__ == "__main__":
+    main()
