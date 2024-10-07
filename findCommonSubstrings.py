@@ -28,7 +28,8 @@ def findCommonStrings(matrix, string1):
     commons = []
     for i, row in enumerate(matrix):
         for j, element in enumerate(row):
-            if element == maxCount:
+            # setting threshold
+            if element == maxCount and maxCount >= 6:
                 string = getString(matrix, i, j, string1)
                 commons.append(''.join(string))
     
