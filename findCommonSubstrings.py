@@ -61,15 +61,12 @@ def main():
             string1 = stringList[i]
             string2 = stringList[j]
             matrix = alignStrings(string1, string2)
-            #print(*matrix)
             listOfCommons.append(findCommonStrings(matrix, string1))
     
     # add each string to commonStrings and count
     for string in listOfCommons:
         s = str(string)
         commonStrings[s] = commonStrings.get(s, 0) + 1
-
-    print(commonStrings)
 
     with open("output.csv", "w", newline='') as csvfile:
         writer = csv.writer(csvfile)
