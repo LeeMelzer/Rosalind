@@ -38,7 +38,7 @@ def findCommonStrings(matrix, string1):
 # function to get string from matrix and reverse 
 def getString(matrix, i, j, string1):
     string = []
-    while matrix[i][j] >= 1:
+    while i >= 0 and j >= 0 and matrix[i][j] >= 1:
         string.append(string1[j])
         i-=1
         j-=1
