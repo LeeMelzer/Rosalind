@@ -1,28 +1,35 @@
-class UnionFind:
-    def __init__(self, size):
-        self.root = [i for i in range(size)]
-        self.rank = [1] * size
+import heapq
 
-    def find(self, x):
-        if x == self.root[x]:
-            return x
-        self.root[x] = self.find(self.root[x])
-        return self.root[x]
+""" def partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
 
-
-    def union(self, x, y):
-        rootX = self.find(x)
-        rootY = self.find(y)
-        if rootX != rootY:
-            if self.rank[rootX] < self.rank[rootY]:
-                self.root[rootX] = rootY
-            elif self.rank[rootX] > self.rank[rootY]:
-                self.root[rootY] = rootX
-            else:
-                self.root[rootY] = rootX
-                self.rank[rootX] += 1
-
-    def isConnected(self, x, y):
-        return self.find(x) == self.find(y)
-
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            (arr[j], arr[i]) = (arr[j], arr[i])
     
+    (arr[i+1], arr[high]) = (arr[high], arr[i+1])
+    return i+1
+
+def quickSort(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
+        quickSort(arr, 0, pi-1)
+        quickSort(arr, pi+1, high) """
+
+def main():
+    arr = [1, 7, 9, 0, -4, 69]
+    # quickSort(arr, 0, len(arr)-1)
+    # print(*arr)
+
+    heapq.heapify(arr)
+    result = []
+    
+    while arr:
+        result.append(heapq.heappop(arr))
+    
+    print(*result)
+
+if __name__ == "__main__":
+    main()   
