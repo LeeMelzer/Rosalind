@@ -7,9 +7,9 @@ import heapq
     for j in range(low, high):
         if arr[j] <= pivot:
             i += 1
-            (arr[j], arr[i]) = (arr[j], arr[i])
+            (arr[i], arr[j]) = (arr[j], arr[i])
     
-    (arr[i+1], arr[high]) = (arr[high], arr[i+1])
+    (arr[i+1],arr[high]) = (arr[high], arr[i+1])
     return i+1
 
 def quickSort(arr, low, high):
@@ -19,17 +19,16 @@ def quickSort(arr, low, high):
         quickSort(arr, pi+1, high) """
 
 def main():
-    arr = [1, 7, 9, 0, -4, 69]
-    # quickSort(arr, 0, len(arr)-1)
+    arr = [1, 4, 7, 9, 69, -4]
+    # quickSort(arr, 0, len(arr) - 1)
     # print(*arr)
 
     heapq.heapify(arr)
     result = []
-    
     while arr:
         result.append(heapq.heappop(arr))
     
     print(*result)
 
 if __name__ == "__main__":
-    main()   
+    main()
